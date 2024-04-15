@@ -44,7 +44,7 @@
                                     <td
                                         class="px-4 py-2 border border-gray-400  
                                         @if ($booking->status == 'returned') 
-                                        text-green-400
+                                        text-green-400.
                                         @elseif($booking->status == 'reserved')
                                         text-orange-400 
                                         @endif">

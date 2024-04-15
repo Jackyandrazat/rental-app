@@ -43,7 +43,7 @@ class ReturnController extends Controller
         ]);
 
         $existingBooking = Booking::where('id', $request->booking_id)
-            ->where('status','returned')
+            ->where('status', 'returned')
             ->first();
 
         if ($existingBooking) {
@@ -75,6 +75,9 @@ class ReturnController extends Controller
         // Tandai peminjaman mobil sebagai telah dikembalikan
         $booking->update(['status' => 'returned']);
 
+        $car = Car::findOrFail($booking->car_id);
+        $car->status = 'available';
+        $car->save();
 
         return redirect()->route('returns.index')->with('success', 'Car returned successfully.');
     }

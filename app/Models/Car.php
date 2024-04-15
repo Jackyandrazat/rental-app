@@ -15,4 +15,9 @@ class Car extends Model
     ];
 
     protected $table = 'cars';
+
+    public function booking()
+    {
+        return $this->hasOne(Booking::class);
+    }
 }

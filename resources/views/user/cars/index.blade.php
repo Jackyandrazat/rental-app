@@ -11,6 +11,7 @@
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Model</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Plate</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Budget</th>
+                                <th class="px-4 py-2 bg-gray-200 border border-gray-400">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -20,7 +21,12 @@
                                     <td class="px-4 py-2 border border-gray-400">{{ $car->model }}</td>
                                     <td class="px-4 py-2 border border-gray-400">{{ $car->license_plate }}</td>
                                     <td class="px-4 py-2 border border-gray-400">{{ $car->rental_rate_per_day }}</td>
-                                   
+                                    <td
+                                        class="px-4 py-2 border border-gray-400  
+                                    @if ($car->status == 'available') text-green-400
+                                    @elseif($car->status == 'reserved')
+                                    text-orange-400 @endif">
+                                        {{ $car->status }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

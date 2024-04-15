@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('model', 100);
             $table->string('license_plate', 10)->unique();
             $table->decimal('rental_rate_per_day', 10,2);
+            $table->string('status');
             $table->timestamps();
         });
     }

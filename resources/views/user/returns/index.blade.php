@@ -22,21 +22,27 @@
                         <thead>
                             <tr>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">ID</th>
-                                <th class="px-4 py-2 bg-gray-200 border border-gray-400">Booking ID</th>
+                                <th class="px-4 py-2 bg-gray-200 border border-gray-400">Start Boking</th>
+                                <th class="px-4 py-2 bg-gray-200 border border-gray-400">End Boking</th>
+                                <th class="px-4 py-2 bg-gray-200 border border-gray-400">Car</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Return Date</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Rental Days</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Total Rental Cost</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($returns as $return)
                                 <tr class="text-center">
                                     <td class="px-4 py-2 border border-gray-400">{{ $return->id }}</td>
-                                    <td class="px-4 py-2 border border-gray-400">{{ $return->booking_id }}</td>
+                                    <td class="px-4 py-2 border border-gray-400">{{ $return->booking->start_date }}</td>
+                                    <td class="px-4 py-2 border border-gray-400">{{ $return->booking->end_date }}</td>
+                                    <td class="px-4 py-2 border border-gray-400">{{ $return->booking->car->brand }} -
+                                        {{ $return->booking->car->license_plate }}</td>
                                     <td class="px-4 py-2 border border-gray-400">{{ $return->return_date }}</td>
                                     <td class="px-4 py-2 border border-gray-400">{{ $return->rental_day }}</td>
                                     <td class="px-4 py-2 border border-gray-400">{{ $return->total_rental_cost }}</td>
+
                                 </tr>
                             @endforeach
                         </tbody>

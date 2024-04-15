@@ -26,6 +26,8 @@
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Car</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Start Date</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">End Date</th>
+                                <th class="px-4 py-2 bg-gray-200 border border-gray-400">Status</th>
+                                <th class="px-4 py-2 bg-gray-200 border border-gray-400">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +41,24 @@
                                         {{ $booking->start_date->format('Y-m-d') }}</td>
                                     <td class="px-4 py-2 border border-gray-400">
                                         {{ $booking->end_date->format('Y-m-d') }}</td>
+                                    <td
+                                        class="px-4 py-2 border border-gray-400  
+                                        @if ($booking->status == 'returned') text-green-400
+                                        @elseif($booking->status == 'reserved')
+                                        text-orange-400 @endif">
+                                        {{ $booking->status }}</td>
+                                        <td class="px-2 py-2">
+                                            <div class="flex items-center justify-center space-x-4 text-sm">
+                                                <form action="{{ route('bookings.destroy', $booking->id) }}" method="post"
+                                                    class="inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="flex items-center justify-between px-2 py-1 text-red-600 rounded-lg focus:outline-none focus:shadow-outline-gray hover:bg-red-100"
+                                                        onclick="return confirm('Are you sure you want to delete this data?')">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -6,13 +6,14 @@
                     <h1 class="text-center">List of Cars</h1>
                     <a href="{{ route('cars.create') }}"
                         class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add Cars</a>
-                    <table class="w-full mt-4 border-collapse border border-gray-400">
+                    <table id="cars-table" class="w-full mt-4 border-collapse border border-gray-400">
                         <thead>
                             <tr class="text-center">
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Brand</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Model</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Plate</th>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Budget</th>
+                                <th class="px-4 py-2 bg-gray-200 border border-gray-400">Status</th>
                                 <th class="px-2 py-2 bg-gray-200 border border-gray-400">Action</th>
                             </tr>
                         </thead>
@@ -23,6 +24,12 @@
                                     <td class="px-4 py-2 border border-gray-400">{{ $car->model }}</td>
                                     <td class="px-4 py-2 border border-gray-400">{{ $car->license_plate }}</td>
                                     <td class="px-4 py-2 border border-gray-400">{{ $car->rental_rate_per_day }}</td>
+                                    <td
+                                        class="px-4 py-2 border border-gray-400  
+                                    @if ($car->status == 'available') text-green-400
+                                    @elseif($car->status == 'reserved')
+                                    text-orange-400 @endif">
+                                        {{ $car->status }}</td>
                                     <td class="px-2 py-2">
                                         <div class="flex items-center justify-center space-x-4 text-sm">
                                             <a href="{{ route('cars.edit', ['car' => $car->id]) }}"
@@ -54,4 +61,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets/js/search.js') }}" defer></script>
 </x-app-layout>

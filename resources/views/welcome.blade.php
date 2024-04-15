@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+
+
 <!-- Scripts -->
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -31,7 +33,8 @@
                     <nav aria-label="Global" class="hidden md:block">
                         <ul class="flex items-center gap-6 text-sm">
                             <li>
-                                <a class="text-black text-2xl transition hover:text-gray-500/75" href="#"> RENTCARAPP </a>
+                                <a class="text-black text-2xl transition hover:text-gray-500/75" href="#">
+                                    RENTCARAPP </a>
                             </li>
                         </ul>
                     </nav>
@@ -71,7 +74,8 @@
             </div>
         </header>
     @endif
-    <section class="relative bg-[url(https://e1.pxfuel.com/desktop-wallpaper/542/539/desktop-wallpaper-car-showrooms-car-showroom.jpg)] bg-cover bg-center bg-no-repeat">
+    <section
+        class="relative bg-[url(https://e1.pxfuel.com/desktop-wallpaper/542/539/desktop-wallpaper-car-showrooms-car-showroom.jpg)] bg-cover bg-center bg-no-repeat">
         <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
             <div class="mx-auto max-w-xl text-center">
                 <h1 class="text-3xl font-extrabold sm:text-5xl">

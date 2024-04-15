@@ -39,11 +39,6 @@ class BookingController extends Controller
 
     public function store(Request $request)
     {
-        // $car = Car::findOrFail($request->car_id);
-        // if (!$car->available) {
-        //     return redirect()->back()->with('error', 'The selected car is not available for booking.');
-        // }
-
         // Memeriksa apakah mobil sudah dikembalikan
         $existingBooking = Booking::where('status', 'reserved')
             ->where('end_date', '>', now())
@@ -53,11 +48,19 @@ class BookingController extends Controller
             return redirect()->back()->with('error', 'The selected car is not available for booking as it is currently being used.');
         }
 
+        // Membuat booking baru
+        $booking = new Booking($request->all());
+        $booking->status = 'reserved'; // Mengisi nilai kolom 'status'
+        $booking->save();
 
-        Booking::create($request->all());
+        // Memperbarui status mobil menjadi 'reserved'
+        $car = Car::findOrFail($request->car_id);
+        $car->status = 'reserved';
+        $car->save();
 
         return redirect()->route('bookings.index')->with('success', 'Booking created successfully.');
     }
+
 
     public function show(Booking $booking)
     {
@@ -85,8 +88,17 @@ class BookingController extends Controller
         return redirect()->route('bookings.index')->with('success', 'Booking updated successfully.');
     }
 
-    public function destroy(Booking $booking)
+    public function destroy($id)
     {
+        // Temukan booking yang akan dihapus
+        $booking = Booking::findOrFail($id);
+
+        // Perbarui status mobil terkait menjadi tersedia
+        $car = Car::findOrFail($booking->car_id);
+        $car->status = 'available';
+        $car->save();
+
+        // Hapus booking
         $booking->delete();
 
         return redirect()->route('bookings.index')->with('success', 'Booking deleted successfully.');
