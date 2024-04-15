@@ -4,7 +4,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h1 class="text-center">List of Cars</h1>
-                    <table class="w-full mt-4 border-collapse border border-gray-400">
+                    <table id="cars-table" class="w-full mt-4 border-collapse border border-gray-400">
                         <thead>
                             <tr>
                                 <th class="px-4 py-2 bg-gray-200 border border-gray-400">Brand</th>
@@ -37,4 +37,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets/js/search.js') }}" defer></script>
 </x-app-layout>
