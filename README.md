@@ -7,6 +7,23 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## PENTUJUK PENGGUNAAN
+- PASTIKAN INSTAL NODE TERLEBIH DAHULU "NPM INSTALL"
+- SETUP ENV DAN SESUAIKAN DENGAN DATABASE PORT DAN USERNAME SERTA PASWORD YANG DI PAKAI
+- SETELAH SELESAI, LAKUKAN MIGRASI DENGAN PERINTAH PHP ARTISAN MIGRATE ATAU PHP ARTISAN MIGRATE:FRESH
+- JALANKAN LARAVEL DENGN PERINTAH PHP ARTISAN SERVE DAN NPM RUN DEV
+- REGISTER AKUN DAN NANTI AKAN DI ARAHKAN KEHALAMAN USER.
+- JIKA INGIN MENGAKSES HALAMAN ADMIN, RUBAH DULU FIELD DI DATABASE DENGAN TABEL USER FIELD YANG BERNAMA 'USERTYPE' JADI ('admin'), LALU SIMPAN DAN RELOAD WEB LARAVEL TSB.
+- PROJECT SIAP DIGUNAKAN.
+
+
+NOTE: Untuk project ini menggunakan 2 role yang mana masing itu user dan admin, USER hanya beberapa akses sedangkan ADMIN FULL ACCES.
+
+JIKA ADA KENDALA ATAU PERTANYAAN SILAHKAN HUBUNGI KAMI.
+
+HAPPY TESTING.
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
